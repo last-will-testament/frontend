@@ -4,5 +4,11 @@
 } */
 
 body {
-  background-image: url('../../public/bg2.jpg');
+  /* background-image: url('../../public/bg2.jpg'); */
+}
+
+.logohead {
+  height: 150px;
+  width: 100%;
+  background-color: black;
 }

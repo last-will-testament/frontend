@@ -73,7 +73,7 @@ class UserContainer extends Component {
   render(){
     return (
       <div className="container mt-5">
-        <h1 className="mb-5">User ex</h1>
+        <h1 className="mb-5">User Information</h1>
         <div className="row">
           <div className="col-8 offset-2">
             <form onSubmit={this.handleSubmit}>

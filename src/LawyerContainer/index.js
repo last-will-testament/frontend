@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import Nav from '../Nav'
 
 class LawyerContainer extends Component {
   constructor(){
@@ -74,6 +75,8 @@ class LawyerContainer extends Component {
 
   render(){
     return (
+    <div>
+
       <div className="container mt-5">
         <div className="mb-5">
           <h1 className="">Lawyer Information</h1>
@@ -85,12 +88,12 @@ class LawyerContainer extends Component {
               <div className="form-group">
                 <label htmlFor="lawyerName" >Name:</label>
                  <input className="form-control" id="lawyerName" name="lawyerName" value={this.state.lawyer.lawyerName} onChange={this.handleChange}/>
-                 <small>Enter full name</small>
+                 
               </div>
               <div className="form-group">
                 <label htmlFor="lawyerNumber">Contact Number:</label>
                  <input className="form-control" id="lawyerNumber" name="lawyerNumber" value={this.state.lawyer.lawyerNumber} onChange={this.handleChange}/>
-                 <small>no need '-'</small>
+
               </div>
               <div className="form-group">
                 <label htmlFor="lawyerEmail">Contact Email:</label>
@@ -102,6 +105,7 @@ class LawyerContainer extends Component {
           </div>
         </div>
       </div>
+    </div>
     )
   }
 }

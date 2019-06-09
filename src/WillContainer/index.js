@@ -75,7 +75,7 @@ class WillContainer extends Component {
   render(){
     return (
       <div className="container mt-5">
-        <h1 className="mb-5">Will ex</h1>
+        <h1 className="mb-5">Your Will</h1>
         <div className="row">
           <div className="col-8 offset-2">
             <form onSubmit={this.handleSubmit}>
@@ -84,11 +84,11 @@ class WillContainer extends Component {
                  <input className="form-control" name="kinName" value={this.state.will.kinName} onChange={this.handleChange}/>
               </div>
               <div className="form-group">
-                <label htmlFor="kinNumber">Kin contact number:</label>
+                <label htmlFor="kinNumber">Kin Contact Number:</label>
                  <input className="form-control" name="kinNumber" value={this.state.will.kinNumber} onChange={this.handleChange}/>
               </div>
               <div className="form-group">
-                <label htmlFor="kinEmail">Contact Email:</label>
+                <label htmlFor="kinEmail">Kin Contact Email:</label>
                 <input className="form-control" name="kinEmail" value={this.state.will.kinEmail} onChange={this.handleChange}/>
               </div>
               <div className="form-group">
