@@ -5,7 +5,7 @@ class WillContainer extends Component {
   constructor(){
     super()
     this.state = {
-      user : {
+      will : {
         username : '',
         contactNumber: '',
         contactEmail: ''
@@ -18,32 +18,34 @@ class WillContainer extends Component {
     //e = event
     console.log('this is e', e.target);
     const updatedChange = {
-      ...this.state.user
+      ...this.state.will
     }
     updatedChange[e.target.name] = e.target.value;
 
     this.setState({
-      user: updatedChange
+      will: updatedChange
     })
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
     const updatedInfo = {
-      ...this.state.user
+      ...this.state.will
     }
 
     this.addUserInfo(updatedInfo)
     this.setState({
-      // user : {
-      //
-      // }
+      will : {
+        username : '',
+        contactNumber: '',
+        contactEmail: ''
+      }
     })
   }
 
   addUserInfo = async(updatedInfo) => {
     try{
-        const response = await fetch(`localhost:9000/deadoralive`, {
+        const response = await fetch(`http://localhost:9000/deadoralive/will`, {
           method: 'POST',
           credentials: 'include',
           body: JSON.stringify(updatedInfo),
@@ -57,7 +59,7 @@ class WillContainer extends Component {
           throw Error(response.statusText)
         }
 
-        const parsedCreateHouse = await response.json();
+        const parsedWill = await response.json();
 
         // this.props.history.push('/');
 
@@ -77,15 +79,15 @@ class WillContainer extends Component {
             <form onSubmit={this.handleSubmit}>
               <div className="form-group">
                 <label>Username:</label>
-                 <input className="form-control" name="username" value={this.state.user.username} onChange={this.handleChange}/>
+                 <input className="form-control" name="username" value={this.state.will.username} onChange={this.handleChange}/>
               </div>
               <div className="form-group">
                 <label >Contact Number:</label>
-                 <input className="form-control" onChange={this.handleChange}/>
+                 <input className="form-control" name="contactNumber" value={this.state.will.contactNumber} onChange={this.handleChange}/>
               </div>
               <div className="form-group">
                 <label >Contact Email:</label>
-                <input className="form-control" onChange={this.handleChange}/>
+                <input className="form-control" name="contactEmail" value={this.state.will.contactEmail} onChange={this.handleChange}/>
               </div>
               <button className="btn btn-primary">submit</button>
             </form>
