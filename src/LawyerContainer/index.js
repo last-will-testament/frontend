@@ -6,9 +6,9 @@ class LawyerContainer extends Component {
     super()
     this.state = {
       lawyer : {
-        username : '',
-        contactNumber: '',
-        contactEmail: ''
+        lawyerName : '',
+        lawyerNumber: '',
+        lawyerEmail: ''
         }
     }
   }
@@ -36,9 +36,9 @@ class LawyerContainer extends Component {
     this.addLawyerInfo(updatedInfo)
     this.setState({
       lawyer : {
-        username : '',
-        contactNumber: '',
-        contactEmail: ''
+        lawyerName : '',
+        lawyerNumber: '',
+        lawyerEmail: ''
         }
     })
   }
@@ -63,7 +63,7 @@ class LawyerContainer extends Component {
         // console.log('what is response', response);
         const parsedLawyer = await response.json();
         // console.log('2', parsedLawyer);
-        // this.props.history.push('/');
+        this.props.history.push('/user/will/lawyer/review');
 
       } catch(err) {
         console.log('cannot make house');
@@ -75,21 +75,27 @@ class LawyerContainer extends Component {
   render(){
     return (
       <div className="container mt-5">
-        <h1 className="mb-5">Lawyer ex</h1>
+        <div className="mb-5">
+          <h1 className="">Lawyer Information</h1>
+          <small>Please enter your Lawyer's information</small>
+        </div>
         <div className="row">
           <div className="col-8 offset-2">
             <form onSubmit={this.handleSubmit}>
               <div className="form-group">
-                <label>Username:</label>
-                 <input className="form-control" name="username" value={this.state.lawyer.username} onChange={this.handleChange}/>
+                <label htmlFor="lawyerName" >Name:</label>
+                 <input className="form-control" id="lawyerName" name="lawyerName" value={this.state.lawyer.lawyerName} onChange={this.handleChange}/>
+                 <small>Enter full name</small>
               </div>
               <div className="form-group">
-                <label >Contact Number:</label>
-                 <input className="form-control" name="contactNumber" value={this.state.lawyer.contactNumber} onChange={this.handleChange}/>
+                <label htmlFor="lawyerNumber">Contact Number:</label>
+                 <input className="form-control" id="lawyerNumber" name="lawyerNumber" value={this.state.lawyer.lawyerNumber} onChange={this.handleChange}/>
+                 <small>no need '-'</small>
               </div>
               <div className="form-group">
-                <label >Contact Email:</label>
-                <input className="form-control" name="contactEmail" value={this.state.lawyer.contactEmail} onChange={this.handleChange}/>
+                <label htmlFor="lawyerEmail">Contact Email:</label>
+                <input type="email" className="form-control" id="lawyerEmail" name="lawyerEmail" value={this.state.lawyer.lawyerEmail} onChange={this.handleChange}/>
+                <small></small>
               </div>
               <button className="btn btn-primary">submit</button>
             </form>

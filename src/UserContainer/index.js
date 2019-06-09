@@ -7,8 +7,8 @@ class UserContainer extends Component {
     this.state = {
       user : {
         username : '',
-        contactNumber: '',
-        contactEmail: ''
+        userNumber: '',
+        userEmail: ''
       }
     }
   }
@@ -37,8 +37,8 @@ class UserContainer extends Component {
     this.setState({
       user : {
         username : '',
-        contactNumber: '',
-        contactEmail: ''
+        userNumber: '',
+        userEmail: ''
       }
     })
   }
@@ -61,7 +61,7 @@ class UserContainer extends Component {
 
         const parsedUser = await response.json();
 
-        // this.props.history.push('/');
+        this.props.history.push('/user/will');
 
       } catch(err) {
         console.log('cannot make house');
@@ -78,16 +78,16 @@ class UserContainer extends Component {
           <div className="col-8 offset-2">
             <form onSubmit={this.handleSubmit}>
               <div className="form-group">
-                <label>Username:</label>
-                 <input className="form-control" name="username" value={this.state.user.username} onChange={this.handleChange}/>
+                <label htmlFor="username">Username:</label>
+                 <input className="form-control" id="username" name="username" value={this.state.user.username} onChange={this.handleChange}/>
               </div>
               <div className="form-group">
-                <label >Contact Number:</label>
-                 <input className="form-control" name="contactNumber" value={this.state.user.contactNumber} onChange={this.handleChange}/>
+                <label htmlFor="userNumber">Contact Number:</label>
+                 <input className="form-control" id="userNumber" name="userNumber" value={this.state.user.userNumber} onChange={this.handleChange}/>
               </div>
               <div className="form-group">
-                <label >Contact Email:</label>
-                <input className="form-control" name="contactEmail" value={this.state.user.contactEmail} onChange={this.handleChange}/>
+                <label htmlFor="userEmail">Contact Email:</label>
+                <input className="form-control" id="userEmail" name="userEmail" value={this.state.user.userEmail} onChange={this.handleChange}/>
               </div>
               <button className="btn btn-primary">submit</button>
             </form>
